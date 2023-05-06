@@ -2,12 +2,20 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Post {
+  id: Int!
+  title: String!
+  votes: Int
+}
+
 type Author {
-  id: ID!
+  id: Int!
   firstName: String
   lastName: String
+  posts: [Post!]!
 }
 
 type Query {
-  author(id: ID!): Author!
+  authors(firstName: String, lastName: String! = ""): Author!
+  author(id: Int!): Author!
 }

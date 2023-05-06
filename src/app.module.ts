@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
-import { AuthorsModule } from './authors/authors.module'
+import { AuthorsModule } from './authors/authors.module';
+import { PostsModule } from './posts/posts.moduel';
 
 @Module({
   imports: [
@@ -12,6 +13,7 @@ import { AuthorsModule } from './authors/authors.module'
       playground: true
     }),
     AuthorsModule,
+    PostsModule,
   ]
 })
 export class AppModule {}
