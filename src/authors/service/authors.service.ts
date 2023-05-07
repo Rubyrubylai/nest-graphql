@@ -15,8 +15,8 @@ export class AuthrosSerivce {
 	async findOneById(id: number): Promise<Author> {
 		return {
 			id: id,
-			lastName: "lastName",
-			firstName: "firstName",
+			lastName: 'lastName',
+			firstName: 'firstName',
 			posts: []
 		};
 	}

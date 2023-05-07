@@ -15,6 +15,11 @@ type Author {
   posts: [Post!]!
 }
 
+type Comment {
+  id: Int!
+  content: String
+}
+
 type Query {
   authors(firstName: String, lastName: String! = ""): Author!
   author(id: Int!): Author!
@@ -23,8 +28,18 @@ type Query {
 type Mutation {
   upvotePostArg(postId: Int!): Int!
   upvotePost(upvotePostData: UpvotePostInput!): Int!
+  addComment(postId: Int!, comment: CommentInput!): Comment!
 }
 
 input UpvotePostInput {
   postId: Float!
+}
+
+input CommentInput {
+  id: Int!
+  content: String!
+}
+
+type Subscription {
+  commentAdded: Comment!
 }
