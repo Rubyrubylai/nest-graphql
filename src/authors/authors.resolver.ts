@@ -1,20 +1,20 @@
 /*
 provide the instructions for turning a GraphQL operation (a query, mutation, or subscription) into data
 */
-import { Resolver, Query, Int, Args, ResolveField, Parent } from '@nestjs/graphql';
+import { Resolver, Query, Int, Args, ResolveField, Parent, Mutation } from '@nestjs/graphql';
 
 import { AuthrosSerivce } from './service/authors.service';
-import { PostsSerivce } from '../posts/service/posts.service';
+import { PostsService } from '../posts/service/posts.service';
 import { Author } from './model/authors.model';
 import { Post } from '../posts/models/post.model';
 import { GetAuthorArgs } from './dto/authors.dto';
-
+import { UpvotePostInput } from 'src/posts/dto/posts.dto';
 
 @Resolver(Author)
 export class AuthorsResolver {
   constructor(
     private authorsService: AuthrosSerivce,
-    private postsSerivce: PostsSerivce
+    private postsService: PostsService
   ) {}
 
   @Query(returns => Author, { name: 'authors'})
@@ -30,6 +30,16 @@ export class AuthorsResolver {
   @ResolveField('posts', returns => [Post])  // 解析 Author 類型中的 posts 字段
   async getPosts(@Parent() author: Author) {
     const { id } = author;
-    return this.postsSerivce.findAll(id);
+    return this.postsService.findAll(id);
+  }
+
+  @Mutation(returns => Int)
+  async upvotePostArg(@Args({ name: 'postId', type: () => Int }) postId: number) {
+    return this.postsService.upvoteById({ postId });
+  }
+
+  @Mutation(returns => Int)
+  async upvotePost(@Args('upvotePostData') upvotePostData: UpvotePostInput) {
+    return this.postsService.upvoteById(upvotePostData);
   }
 }

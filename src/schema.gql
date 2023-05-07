@@ -19,3 +19,12 @@ type Query {
   authors(firstName: String, lastName: String! = ""): Author!
   author(id: Int!): Author!
 }
+
+type Mutation {
+  upvotePostArg(postId: Int!): Int!
+  upvotePost(upvotePostData: UpvotePostInput!): Int!
+}
+
+input UpvotePostInput {
+  postId: Float!
+}
