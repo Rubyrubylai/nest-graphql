@@ -20,9 +20,13 @@ type Comment {
   content: String
 }
 
+"""Date custom scalar type"""
+scalar Date
+
 type Query {
   authors(firstName: String, lastName: String! = ""): Author!
   author(id: Int!): Author!
+  date: Date!
 }
 
 type Mutation {

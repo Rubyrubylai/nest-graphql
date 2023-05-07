@@ -14,7 +14,7 @@ import { GetAuthorArgs } from './dto/authors.dto';
 import { UpvotePostInput } from 'src/posts/dto/posts.dto';
 import { CommentInput } from 'src/comments/dto/comments.dto';
 
-export const pubSub = new PubSub();
+const pubSub = new PubSub();
 
 @Resolver(Author)
 export class AuthorsResolver {
@@ -107,4 +107,9 @@ export class AuthorsResolver {
 		pubSub.publish('commentAdded', { commentAdded: newComment });
 		return newComment;
 	}
+
+  @Query(returns => Date)
+  async date() {
+    return new Date()
+  }
 }

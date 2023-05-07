@@ -5,6 +5,7 @@ import { join } from 'path';
 import { AuthorsModule } from './authors/authors.module';
 import { PostsModule } from './posts/posts.module';
 import { CommentsModule } from './comments/comments.module';
+import { CommonModule } from './common/common.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CommentsModule } from './comments/comments.module';
     AuthorsModule,
     CommentsModule,
     PostsModule,
+    CommonModule,
   ]
 })
 export class AppModule {}
