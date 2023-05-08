@@ -1,10 +1,11 @@
-import { Field, ObjectType, Int } from '@nestjs/graphql';
+import { Field, ObjectType, Int, Directive } from '@nestjs/graphql';
 
 @ObjectType()
 export class Post {
   @Field(type => Int)
   id: number;
 
+  @Directive('@upper')
   @Field()
   title: string;
 
