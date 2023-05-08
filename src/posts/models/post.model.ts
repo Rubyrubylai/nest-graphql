@@ -1,4 +1,5 @@
 import { Field, ObjectType, Int, Directive } from '@nestjs/graphql';
+import { loggerMiddleware } from 'src/middleware/logger.middleware';
 
 @ObjectType()
 export class Post {
@@ -6,7 +7,7 @@ export class Post {
   id: number;
 
   @Directive('@upper')
-  @Field()
+  @Field({middleware: [loggerMiddleware]})
   title: string;
 
   @Field(type => Int, { nullable: true })

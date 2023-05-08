@@ -13,6 +13,7 @@ import { Comment } from 'src/comments/model/comments.model';
 import { GetAuthorArgs } from './dto/authors.dto';
 import { UpvotePostInput } from 'src/posts/dto/posts.dto';
 import { CommentInput } from 'src/comments/dto/comments.dto';
+import { loggerMiddleware } from 'src/middleware/logger.middleware';
 
 const pubSub = new PubSub();
 
@@ -51,7 +52,7 @@ export class AuthorsResolver {
     return this.authorsService.findOneById(id)
   }
 
-  @ResolveField('posts', returns => [Post])  // 解析 Author 類型中的 posts 字段
+  @ResolveField('posts', returns => [Post], { middleware: [loggerMiddleware] })  // 解析 Author 類型中的 posts 字段
   async getPosts(@Parent() author: Author) {
     const { id } = author;
     return this.postsService.findAll(id);
