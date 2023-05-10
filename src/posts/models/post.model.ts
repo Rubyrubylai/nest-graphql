@@ -1,7 +1,7 @@
 import { Field, ObjectType, Int, Directive } from '@nestjs/graphql';
 import { loggerMiddleware } from 'src/middleware/logger.middleware';
 
-@ObjectType()
+@ObjectType({ description: 'post' })
 export class Post {
   @Field(type => Int)
   id: number;

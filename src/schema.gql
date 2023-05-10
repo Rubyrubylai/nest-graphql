@@ -4,6 +4,7 @@
 
 directive @upper on FIELD_DEFINITION
 
+"""post"""
 type Post {
   id: Int!
   title: String!
