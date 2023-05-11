@@ -6,14 +6,14 @@ import { PubSub } from 'graphql-subscriptions';
 
 import { AuthrosSerivce } from './service/authors.service';
 import { PostsService } from '../posts/service/posts.service';
-import { CommentsService } from 'src/comments/service/comments.service';
+import { CommentsService } from '../comments/service/comments.service';
 import { Author } from './model/authors.model';
 import { Post } from '../posts/models/post.model';
-import { Comment } from 'src/comments/model/comments.model';
+import { Comment } from '../comments/model/comments.model';
 import { GetAuthorArgs } from './dto/authors.dto';
-import { UpvotePostInput } from 'src/posts/dto/posts.dto';
-import { CommentInput } from 'src/comments/dto/comments.dto';
-import { loggerMiddleware } from 'src/middleware/logger.middleware';
+import { UpvotePostInput } from '../posts/dto/posts.dto';
+import { CommentInput } from '../comments/dto/comments.dto';
+import { loggerMiddleware } from '../middleware/logger.middleware';
 
 const pubSub = new PubSub();
 

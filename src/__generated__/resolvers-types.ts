@@ -55,6 +55,7 @@ export type MutationUpvotePostArgArgs = {
   postId: Scalars['Int'];
 };
 
+/** post */
 export type Post = {
   __typename?: 'Post';
   id: Scalars['Int'];

@@ -11,5 +11,12 @@
             "command": "nest start --watch",
             "cwd": "${workspaceFolder}",
         },
+        {
+            "type": "node-terminal",
+            "name": "generate",
+            "request": "launch",
+            "command": "npm run generate:schema",
+            "cwd": "${workspaceFolder}",
+        },
     ]
 }

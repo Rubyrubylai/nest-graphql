@@ -20,7 +20,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "generate:typings": "ts-node src/generate-typings",
     "generate": "graphql-codegen --config src/codegen.yml",
-    "compile": "npm run generate && tsc"
+    "compile": "npm run generate && tsc",
+    "generate:schema": "ts-node src/generate-schema"
   },
   "dependencies": {
     "@apollo/server": "^4.7.1",
@@ -39,7 +40,9 @@
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.1",
     "@graphql-codegen/client-preset": "^3.0.1",
+    "@graphql-codegen/near-operation-file-preset": "^2.5.0",
     "@graphql-codegen/typescript": "3.0.4",
+    "@graphql-codegen/typescript-resolvers": "3.2.1",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
     "@nestjs/testing": "^9.0.0",
@@ -63,8 +66,7 @@
     "ts-loader": "^9.2.3",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "4.2.0",
-    "typescript": "^4.9.5",
-    "@graphql-codegen/typescript-resolvers": "3.2.1"
+    "typescript": "^4.9.5"
   },
   "jest": {
     "moduleFileExtensions": [

@@ -1,5 +1,5 @@
 import { Field, ObjectType, Int, Directive } from '@nestjs/graphql';
-import { loggerMiddleware } from 'src/middleware/logger.middleware';
+import { loggerMiddleware } from '../../middleware/logger.middleware';
 
 @ObjectType({ description: 'post' })
 export class Post {
